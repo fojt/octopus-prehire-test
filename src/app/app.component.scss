@@ -1,0 +1,39 @@
+.page {
+  display: flex;
+}
+
+.list-wrapper {
+  width: 320px;
+  padding: 40px;
+
+  ul.no-bullets {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin: 15px 0;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    padding: 5px;
+    color: black;
+
+    &:hover {
+      background: cornsilk;
+    }
+  }
+
+  .mat-spinner {
+    margin: 80px;
+  }
+  .no-results{
+    color: red;
+  }
+}
+
+.router-wrapper {
+  flex-grow: 1;
+}

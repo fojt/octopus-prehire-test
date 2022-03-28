@@ -1,0 +1,49 @@
+<div class="page">
+  <div class="list-wrapper">
+
+    <ng-container *ngIf="appService.currenciesListIsLoadingSubject$ | async; else currenciesLoaded">
+      <mat-spinner class="mat-spinner"></mat-spinner>
+    </ng-container>
+
+
+    <ng-template #currenciesLoaded>
+
+      <ng-container *ngIf="appService.currenciesListErrorSubject$ | async as errorMessage; else currenciesList">
+        {{errorMessage}}
+      </ng-container>
+
+      <ng-template #currenciesList>
+
+        <mat-form-field>
+          <mat-label>Search</mat-label>
+          <input type="search" [formControl]="searchFormControl" matInput />
+        </mat-form-field>
+
+        <ul *ngIf="(appService.currenciesListSubject$ | async)!.length > 0;else noResults" class="no-bullets">
+          <li
+            *ngFor="let currency of appService.currenciesListSubject$ | async; trackBy: trackCurrenciesByCode">
+            <a [routerLink]="[currency.code]">
+              {{currency.code}} - {{currency.country}}
+            </a>
+          </li>
+        </ul>
+
+        <ng-template #noResults>
+          <div class="no-results">
+          No results
+          </div>
+        </ng-template>
+
+
+      </ng-template>
+    </ng-template>
+  </div>
+
+
+
+  <div class="router-wrapper">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>
+
