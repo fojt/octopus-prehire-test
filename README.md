@@ -1,32 +1,27 @@
-# octopus-prehire-test
+# Test
 
-## Test definition
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
 
-* Create web application in Angular for displaying currencies and rates.
+## Development server
 
-## Application definition
-  * It is separated into list and detail parts.
-  * List displays currencies. Each currency is represented by currency code and country name.
-  * List can be filtered by fulltext search applied in currency code and country name. Fulltext is case insensitive and ignores diacritic.
-  * List is sorted alphabetically from A to Z by country name.
-  * Detail is displayed on click in currency list item. It is opened to the right from the list.
-  * Detail shows currency code, country name, average rate to CZK counted from last 12 months and line chart with rates to CZK for last 12 months.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Implementation specification
-  * Use typescript as a programming language.
-  * List of currencies is in `data/currencies.json` file.
-  * Rates to CZK for last 12 months are in `data/[currencyCode].json`, ie. `data/eur.json`.
-  * `data/sek.json` file is missing. Application should cover this situation and display an error message on SEK currency list item click.
-  * Do not modify any file in `data` folder. You can move the folder whenever you want if it is necessary for implementation.
-  * Content from files in `data` folder must be retrieved by HTTP communication. Do not include them directly into your code.
-  * Url in browser should be changed dynamically when detail is opened.
-  * Show some kind of loading indication to end user before the data for list or details are received.
-  * Use OnPush change detection strategy when you implement the application in Angular.
+## Code scaffolding
 
-## Development process
-* Clone this project
-* Implement the application based on the definition.
-* After you are fine with your implementation, create a build for **production** use.
-* Commit and push your work back to the forked repository
-* Send us email that you finished the test
-****
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

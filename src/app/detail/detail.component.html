@@ -1,0 +1,31 @@
+<div class="container">
+  <ng-container *ngIf="(appService.currenciesListIsLoadingSubject$ | async)
+|| (appService.currencyDetailIsLoadingSubject$ | async)
+; else currenciesLoaded">
+    <mat-spinner></mat-spinner>
+  </ng-container>
+
+  <ng-template #currenciesLoaded>
+
+    <ng-container *ngIf="(appService.currencyDetailErrorSubject$ | async) || (error$ | async) ; else currencyDetail">
+      {{appService.currencyDetailErrorSubject$ | async}} {{error$ | async}}
+    </ng-container>
+
+    <ng-template #currencyDetail>
+      <ng-container *ngIf="code$ | async as code">
+        <h4>{{code}} - {{country$ | async}}</h4>
+        <div *ngIf="appService.currencyDetailAverageSubject$ | async as average">
+          Average: {{average  | number: '1.0-2'}} CZK
+        </div>
+
+        <canvas
+          *ngIf="appService.currencyDetailTransformedSubject$ | async as data"
+          baseChart [data]="data"
+          [type]="'line'"></canvas>
+
+      </ng-container>
+
+    </ng-template>
+
+  </ng-template>
+</div>
