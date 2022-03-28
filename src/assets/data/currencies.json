@@ -2,7 +2,8 @@
     "currencies": [
 		{
 			"code": "CNY",
-			"country": "Čína"
+			"country"
+      : "Čína"
 		},
 		{
 			"code": "GBP",
